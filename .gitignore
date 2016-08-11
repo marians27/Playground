@@ -1,2 +1,5 @@
 # Windows image file caches
 WeakReferenceExamples/target/*
+springRestOnEmbeddedJetty/target/*
+springRestOnEmbeddedJetty/.idea/*
+springRestOnEmbeddedJetty/*.iml
