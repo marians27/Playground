@@ -51,6 +51,7 @@
         </dependency>
     </dependencies>
     <build>
+        <finalName>${project.artifactId}</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -59,7 +60,7 @@
                     <version>2.6</version>
                     <configuration>
                         <failOnMissingWebXml>false</failOnMissingWebXml>
-                        <warName>${artifactId}</warName>
+                        <warName>${project.artifactId}</warName>
                     </configuration>
                     <executions>
                         <execution>
@@ -94,7 +95,6 @@
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>3.0.2</version>
                     <configuration>
-                        <finalName>${artifactId}</finalName>
                         <archive>
                             <manifest>
                                 <addClasspath>true</addClasspath>

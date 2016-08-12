@@ -38,8 +38,6 @@ public class EmbeddedJettyServer {
     private ServletContextHandler createServletContextHandler(String name) {
         WebAppContext webAppContext = new WebAppContext();
         webAppContext.setContextPath("/" + name);
-        webAppContext.setResourceBase("/");
-        webAppContext.setParentLoaderPriority(true);
         webAppContext.setAttribute(AnnotationConfiguration.CLASS_INHERITANCE_MAP, createClassMap());
         webAppContext.setConfigurations(new Configuration[]{new AnnotationConfiguration()});
         return webAppContext;
