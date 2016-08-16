@@ -8,3 +8,10 @@ mvn clean install
 cd target
 java -jar springRestOnEmbeddedJetty.jar
 ```
+## 2. simpleSpringBootMvc
+**Description:** Simple "Hello World" web application written using spring boot, spring mvc and view in JSP.
+
+**Usage:**
+```
+mvn spring-boot:run
+```
