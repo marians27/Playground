@@ -3,3 +3,6 @@ WeakReferenceExamples/target/*
 springRestOnEmbeddedJetty/target/*
 springRestOnEmbeddedJetty/.idea/*
 springRestOnEmbeddedJetty/*.iml
+simpleSpringBootMvc/target/*
+simpleSpringBootMvc/.idea/*
+simpleSpringBootMvc/*.iml
