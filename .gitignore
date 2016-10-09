@@ -6,3 +6,6 @@ springRestOnEmbeddedJetty/*.iml
 simpleSpringBootMvc/target/*
 simpleSpringBootMvc/.idea/*
 simpleSpringBootMvc/*.iml
+spring-data-example/target/*
+spring-data-example/.idea/*
+spring-data-example/*.iml

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <customer customerId="1" name="Alan" role="Manager"/>
+    <customer customerId="2" name="Steve" role="Administrator"/>
+    <customer customerId="3" name="Dave" role="Developer"/>
+</dataset>
