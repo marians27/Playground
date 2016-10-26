@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <customer customerId="1" name="Alan" role="Manager"/>
+    <account accountId="1" owner_customerId="1" status="A" description="A Account"/>
+    <account accountId="2" owner_customerId="1" status="X" description="X Account"/>
+
+    <customer customerId="2" name="Steve" role="Administrator"/>
+    <account accountId="3" owner_customerId="2" status="A" description="A Account for 2"/>
+
+    <customer customerId="3" name="Dave" role="Developer"/>
+    <account accountId="4" owner_customerId="3" status="X" description="A Account for 3"/>
+</dataset>

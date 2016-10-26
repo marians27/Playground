@@ -5,6 +5,7 @@ import org.dbunit.IDatabaseTester;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
+import org.junit.After;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ActiveProfiles;
@@ -26,14 +27,24 @@ public abstract class SpringDbUnIT {
     @Autowired
     private DataSource dataSource;
 
+    private IDatabaseTester databaseTester = null;
+
     protected void loadDataSet(String dataSetFile) throws Exception {
         IDataSet dataSet = readDataSet(dataSetFile);
         loadDataSet(dataSet);
     }
 
+    @After
+    public void cleanUpAfterTest() throws Exception {
+        if(databaseTester != null) {
+            databaseTester.onTearDown();
+        }
+    }
+
     private void loadDataSet(IDataSet dataSet) throws Exception {
-        IDatabaseTester databaseTester = new DataSourceDatabaseTester(dataSource);
+        databaseTester = new DataSourceDatabaseTester(dataSource);
         databaseTester.setSetUpOperation(DatabaseOperation.CLEAN_INSERT);
+        databaseTester.setTearDownOperation(DatabaseOperation.DELETE);
         databaseTester.setDataSet(dataSet);
         databaseTester.onSetup();
     }

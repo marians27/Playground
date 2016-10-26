@@ -15,6 +15,8 @@ public class Account {
 
     private String status;
 
+    private String description;
+
     @ManyToOne
     private Customer owner;
 
@@ -42,6 +44,14 @@ public class Account {
         this.owner = owner;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -55,5 +65,15 @@ public class Account {
     @Override
     public int hashCode() {
         return Objects.hash(accountId, status, owner);
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "accountId=" + accountId +
+                ", status='" + status + '\'' +
+                ", description='" + description + '\'' +
+                ", owner=" + owner +
+                '}';
     }
 }

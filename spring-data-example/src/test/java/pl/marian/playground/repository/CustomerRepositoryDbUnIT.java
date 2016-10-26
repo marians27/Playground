@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import pl.marian.playground.domain.Customer;
 import pl.marian.playground.repository.base.SpringDbUnIT;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -33,5 +35,27 @@ public class CustomerRepositoryDbUnIT extends SpringDbUnIT {
         Customer rocky = customerRepository.findByName("Rocky");
 
         assertThat(rocky).isNull();
+    }
+
+    @Test
+    public void loadWithJoin() throws Exception {
+        loadDataSet("pl/marian/playground/repository/customerWithAccounts.dataset.xml");
+
+        List<Customer> customers = customerRepository.loadCustomerWithActiveAccount();
+
+        assertThat(customers).hasSize(2);
+        Customer customer1 = findById(customers, 1);
+        assertThat(customer1.getAccounts()).hasSize(1);
+        assertThat(customer1.activeAccount()).isNotNull();
+        assertThat(customer1.activeAccount().getDescription()).isEqualTo("A Account");
+
+        Customer customer2 = findById(customers, 2);
+        assertThat(customer2.getAccounts()).hasSize(1);
+        assertThat(customer2.activeAccount()).isNotNull();
+        assertThat(customer2.activeAccount().getDescription()).isEqualTo("A Account for 2");
+    }
+
+    private Customer findById(List<Customer> customers, int customerId) {
+        return customers.stream().filter(c -> c.getCustomerId() == customerId).findAny().orElse(null);
     }
 }

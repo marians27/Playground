@@ -1,9 +1,8 @@
 package pl.marian.playground.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Customer {
@@ -15,6 +14,9 @@ public class Customer {
     private String name;
 
     private String role;
+
+    @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY)
+    private Set<Account> accounts;
 
     public int getCustomerId() {
         return customerId;
@@ -38,6 +40,18 @@ public class Customer {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Set<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(Set<Account> accounts) {
+        this.accounts = accounts;
+    }
+
+    public Account activeAccount() {
+        return accounts.stream().filter(a -> "A".equals(a.getStatus())).findAny().orElse(null);
     }
 
     @Override
