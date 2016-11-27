@@ -9,3 +9,6 @@ simpleSpringBootMvc/*.iml
 spring-data-example/target/*
 spring-data-example/.idea/*
 spring-data-example/*.iml
+spring-boot-properties-externalization/target/*
+spring-boot-properties-externalization/.idea/*
+spring-boot-properties-externalization/*.iml
