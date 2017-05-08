@@ -12,3 +12,6 @@ spring-data-example/*.iml
 spring-boot-properties-externalization/target/*
 spring-boot-properties-externalization/.idea/*
 spring-boot-properties-externalization/*.iml
+**/target/*
+**/*.iml
+**/.idea/*

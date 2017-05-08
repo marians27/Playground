@@ -23,7 +23,7 @@ This directory contains various fully-fledged deployments of the app integrated 
 ```
 docker-compose up
 ```
-## fluentd/example0
+#### fluentd/example0
 This example just run fluentd which reads logs created by simple-logging-app and spit this logs out in the stdout.
 
 #### fluentd/example1
