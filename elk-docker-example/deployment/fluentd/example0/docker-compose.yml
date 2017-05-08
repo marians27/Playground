@@ -1,0 +1,13 @@
+version: '2'
+services:
+  app:
+    build: ../../../simple-logging-app/
+    volumes: 
+      - /logs/
+
+  fluentd:
+    image: fluent/fluentd
+    volumes:
+      - ./fluent-0.conf:/fluentd/etc/fluent.conf
+    volumes_from:
+      - app
