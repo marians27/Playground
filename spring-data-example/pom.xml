@@ -10,7 +10,7 @@
 
     <properties>
         <spring.version>4.3.3.RELEASE</spring.version>
-        <spring.data.version>1.10.4.RELEASE</spring.data.version>
+        <spring.data.version>1.11.23.RELEASE</spring.data.version>
         <hibernate.version>5.2.2.Final</hibernate.version>
     </properties>
     <dependencyManagement>
